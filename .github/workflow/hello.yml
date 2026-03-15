@@ -1,0 +1,13 @@
+name: hello
+ on:
+   push:
+     branches:[main]
+
+     jobs:
+
+       greet:
+         run-on: ubuntu:leatest
+
+           steps:
+             - name: saychello to user
+               run: echo"hello bhai"
