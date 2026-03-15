@@ -6,7 +6,7 @@ name: hello
      jobs:
 
        greet:
-         run-on: ubuntu:leatest
+         run-on: ubuntu:latest
 
            steps:
              - name: saychello to user
