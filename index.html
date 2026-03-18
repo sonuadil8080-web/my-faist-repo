@@ -1,134 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sonu Kushwaha | Linux Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+    :root{
+      --bg:#05070d;--card:#0b0f1a;--text:#e6eaf2;--muted:#9aa4b2;--accent:#7dd3fc;--accent2:#a78bfa;
     }
-    header {
-      background: #020617;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #1e293b;
-    }
-    header h1 {
-      margin: 0;
-      color: #38bdf8;
-    }
-    nav a {
-      margin: 0 10px;
-      color: #cbd5f5;
-      text-decoration: none;
-    }
-    section {
-      padding: 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .card {
-      background: #020617;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    h2 {
-      color: #22c55e;
-    }
-    ul {
-      line-height: 1.8;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #020617;
-      border-top: 1px solid #1e293b;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #38bdf8;
-      color: #000;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-top: 10px;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 80% -10%,rgba(167,139,250,.15),transparent),radial-gradient(900px 500px at -10% 20%,rgba(125,211,252,.15),transparent),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial}
+    a{text-decoration:none;color:inherit}
+
+    header{position:sticky;top:0;backdrop-filter: blur(12px);background:rgba(5,7,13,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{font-weight:800;letter-spacing:.5px}
+    .links a{margin-left:16px;color:var(--muted)}
+
+    .hero{max-width:1100px;margin:60px auto 40px;padding:0 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+    .title{font-size:48px;line-height:1.1;font-weight:800}
+    .subtitle{color:var(--muted);margin-top:12px}
+    .cta{margin-top:22px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:600;box-shadow:0 10px 30px rgba(125,211,252,.25);transition:transform .2s ease,box-shadow .2s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(167,139,250,.35)}
+
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+    section{max-width:1100px;margin:30px auto;padding:0 20px}
+    h2{font-size:28px;margin:10px 0 16px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{border-radius:18px;padding:18px;background:var(--card);border:1px solid rgba(255,255,255,.06);transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+    .muted{color:var(--muted)}
+
+    footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+
+    /* reveal animations */
+    .reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .title{font-size:36px}
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Sonu Kushwaha</h1>
-  <p>Linux System Administrator | DevOps Enthusiast</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="nav">
+    <div class="brand">Sonu Kushwaha</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </header>
 
-<section id="about">
-  <div class="card">
-    <h2>About Me</h2>
-    <p>Linux System Administrator with 4+ years of experience in managing Linux servers, troubleshooting complex issues, and ensuring system reliability. Skilled in cloud technologies, DevOps tools, and automation.</p>
+<div class="hero">
+  <div>
+    <div class="title">Linux Admin.<br/>Cloud & DevOps.</div>
+    <div class="subtitle">4+ years building reliable systems, automation, and cloud infrastructure.</div>
+    <div class="cta"><a class="btn" href="#contact">Hire Me</a></div>
+  </div>
+  <div class="glass reveal">
+    <p>⚡ 99.9% uptime across production systems</p>
+    <p>⚡ 70+ servers managed</p>
+    <p>⚡ AWS, Docker, Ansible expert</p>
+  </div>
+</div>
+
+<section id="about" class="reveal">
+  <h2>About</h2>
+  <div class="glass">
+    Linux System Administrator with strong expertise in troubleshooting, automation, and cloud environments. Experienced in handling production systems and delivering high availability.
   </div>
 </section>
 
-<section id="skills">
-  <div class="card">
-    <h2>Skills</h2>
-    <ul>
-      <li>Linux: RHEL, CentOS, Ubuntu, SUSE</li>
-      <li>Storage: RAID, LVM, NFS, iSCSI</li>
-      <li>Networking: DNS, DHCP, FTP, SSH</li>
-      <li>Web Servers: Apache, Nginx</li>
-      <li>Cloud: AWS (EC2, S3, RDS)</li>
-      <li>DevOps: Docker, Ansible, Git</li>
-      <li>Scripting: Shell, Python</li>
-    </ul>
+<section id="skills" class="reveal">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">Linux (RHEL, Ubuntu, SUSE)</div>
+    <div class="card">AWS (EC2, S3, RDS)</div>
+    <div class="card">Docker & Ansible</div>
+    <div class="card">Nginx / Apache</div>
+    <div class="card">Networking (DNS, DHCP)</div>
+    <div class="card">Shell & Python</div>
   </div>
 </section>
 
-<section id="experience">
-  <div class="card">
-    <h2>Experience</h2>
-    <p><strong>Linux Support Engineer</strong> - Teckinfo Solutions (2024 - Present)</p>
-    <p><strong>Linux Support Executive</strong> - TOSS Pvt Ltd (2023 - 2024)</p>
-    <p><strong>Linux Admin</strong> - IP Solutions Technologies (2021 - 2023)</p>
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <strong>AWS Operations</strong>
+      <p class="muted">Maintained 99.9% uptime & reduced MTTR by 30%</p>
+    </div>
+    <div class="card">
+      <strong>Asterisk Dialer</strong>
+      <p class="muted">Improved uptime & reduced downtime by 25%</p>
+    </div>
+    <div class="card">
+      <strong>VMware Infra</strong>
+      <p class="muted">Managed 50+ VMs with optimized storage</p>
+    </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="card">
-    <h2>Projects</h2>
-    <ul>
-      <li>Enterprise Linux & AWS Operations (99.9% uptime)</li>
-      <li>Asterisk Dialer Infrastructure</li>
-      <li>VMware Virtualization & Storage Management</li>
-    </ul>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="card">
-    <h2>Contact</h2>
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <div class="glass">
     <p>📞 +91-8957826242</p>
     <p>📧 sonu.it.professional@outlook.com</p>
-    <a href="#" class="btn">Download Resume</a>
+    <a class="btn" href="#">Download Resume</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Sonu Kushwaha | Built with ❤️</p>
+  © 2026 Sonu Kushwaha • Luxury Portfolio UI
 </footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+  }, {threshold: .2});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
