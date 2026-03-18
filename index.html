@@ -3,73 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonu Kushwaha | DevOps Portfolio</title>
+<title>Sonu Kushwaha | Elite DevOps Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05070d;--text:#e6eaf2;--muted:#9aa4b2;--accent:#7dd3fc;--accent2:#a78bfa}
-body{margin:0;font-family:Inter;background:var(--bg);color:var(--text)}
-header{position:sticky;top:0;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);padding:15px;text-align:center}
+:root{--bg:#05070d;--text:#e6eaf2;--accent:#7dd3fc;--accent2:#a78bfa}
+body{margin:0;font-family:Inter;color:var(--text);overflow-x:hidden}
+video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:-1}
+header{text-align:center;padding:15px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px)}
 .hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;padding:60px 20px}
-.hero img{width:260px;height:260px;object-fit:cover;border-radius:50%;border:3px solid var(--accent)}
+.hero img{width:240px;height:240px;border-radius:50%;border:3px solid var(--accent)}
 .title{font-size:42px;font-weight:800}
-.typing{color:var(--accent);font-size:20px;margin-top:10px}
-.btn{display:inline-block;margin-top:20px;padding:12px 20px;border-radius:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:600}
+.typing{color:var(--accent);margin-top:10px}
+.btn{display:inline-block;margin-top:15px;padding:10px 20px;border-radius:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000}
 section{max-width:1100px;margin:40px auto;padding:20px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:rgba(255,255,255,.05);padding:20px;border-radius:15px}
-.testimonial{background:rgba(255,255,255,.05);padding:15px;border-radius:12px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.title{font-size:30px}}
+.stats{display:flex;justify-content:space-around;text-align:center}
+.stat h3{font-size:30px;color:var(--accent)}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>Sonu Kushwaha | Linux & DevOps Engineer</header>
+
+<video autoplay muted loop>
+<source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<header>Sonu Kushwaha | DevOps Engineer</header>
 
 <div class="hero">
-<img src="/mnt/data/WhatsApp Image 2026-02-16 at 5.29.36 PM.jpeg" alt="Sonu">
+<img src="your-image.jpg">
 <div>
 <div class="title">Hi, I'm Sonu 👋</div>
 <div class="typing" id="typing"></div>
-<a class="btn" href="#contact">Hire Me</a>
+<a class="btn" href="#projects">View Work</a>
 </div>
 </div>
 
 <section>
-<h2>What I Do</h2>
+<h2>Stats</h2>
+<div class="stats">
+<div class="stat"><h3 id="uptime">0%</h3><p>Uptime</p></div>
+<div class="stat"><h3 id="servers">0+</h3><p>Servers Managed</p></div>
+<div class="stat"><h3 id="exp">0+</h3><p>Years Experience</p></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Live Projects</h2>
 <div class="grid">
-<div class="card">Linux Server Management</div>
-<div class="card">AWS Cloud Deployment</div>
-<div class="card">Docker & Containers</div>
-<div class="card">CI/CD Automation</div>
-<div class="card">Monitoring (Zabbix)</div>
-<div class="card">Web Server Setup</div>
+<div class="card">
+<b>Docker Flask App</b><br>
+<a href="https://github.com/your-repo" target="_blank">View on GitHub</a>
+</div>
+<div class="card">
+<b>AWS Infra Setup</b><br>
+<a href="https://github.com/your-repo" target="_blank">View on GitHub</a>
+</div>
+<div class="card">
+<b>CI/CD Pipeline</b><br>
+<a href="https://github.com/your-repo" target="_blank">View on GitHub</a>
+</div>
 </div>
 </section>
 
 <section>
-<h2>Projects</h2>
-<div class="grid">
-<div class="card">AWS Infra (EC2, S3, RDS)</div>
-<div class="card">Docker Flask App Deployment</div>
-<div class="card">CI/CD with GitHub Actions</div>
-</div>
-</section>
-
-<section>
-<h2>Testimonials</h2>
-<div class="grid">
-<div class="testimonial">"Sonu reduced downtime and improved system reliability massively."</div>
-<div class="testimonial">"Very skilled in Linux and AWS troubleshooting."</div>
-<div class="testimonial">"Fast, reliable and professional DevOps engineer."</div>
-</div>
-</section>
-
-<section id="contact">
 <h2>Contact</h2>
-<div class="card">📧 sonu.it.professional@outlook.com<br>📞 +91-8957826242</div>
+<div class="card">📧 sonu.it.professional@outlook.com</div>
 </section>
 
 <script>
-const words=["Linux Expert","AWS Engineer","Docker Specialist","DevOps Professional"];
+// typing
+const words=["Linux Expert","AWS Engineer","DevOps Specialist"];
 let i=0,j=0,current='',isDeleting=false;
 function type(){
  current=words[i];
@@ -79,6 +86,20 @@ function type(){
  setTimeout(type,isDeleting?50:100);
 }
 type();
+
+// animated stats
+function animateValue(id,end,duration){
+ let start=0,range=end-start,inc=range/(duration/50);
+ let obj=document.getElementById(id);
+ let timer=setInterval(()=>{
+  start+=inc;
+  if(start>=end){start=end;clearInterval(timer)}
+  obj.innerText=Math.floor(start)+(id==='uptime'?'%':'+');
+ },50);
+}
+animateValue('uptime',99,2000);
+animateValue('servers',70,2000);
+animateValue('exp',4,2000);
 </script>
 
 </body>
