@@ -4,121 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonu Kushwaha | DevOps Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05070d;--text:#e6eaf2;--accent:#7dd3fc;--accent2:#a78bfa}
-body{margin:0;font-family:Inter;color:var(--text);overflow-x:hidden}
-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.65);z-index:-1}
-header{text-align:center;padding:15px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px)}
-.hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;padding:60px 20px}
-.hero img{width:240px;height:240px;border-radius:50%;border:3px solid var(--accent);object-fit:cover}
-.title{font-size:42px;font-weight:800}
-.typing{color:var(--accent);margin-top:10px;font-size:20px}
-.btn{display:inline-block;margin-top:15px;padding:10px 20px;border-radius:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:600}
-section{max-width:1100px;margin:40px auto;padding:20px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:rgba(255,255,255,.05);padding:20px;border-radius:15px}
-.stats{display:flex;justify-content:space-around;text-align:center}
-.stat h3{font-size:30px;color:var(--accent)}
-a{color:var(--accent)}
-@media(max-width:900px){.grid{grid-template-columns:1fr}}
+body{margin:0;font-family:Inter;background:#0b0f1a;color:#e6eaf2}
+header{text-align:center;padding:20px;background:#020617}
+h1{margin:0;color:#7dd3fc}
+section{max-width:1000px;margin:auto;padding:30px}
+.card{background:#020617;padding:20px;border-radius:10px;margin:15px 0}
+pre{background:#000;padding:15px;border-radius:8px;overflow:auto;color:#22c55e}
 </style>
 </head>
 <body>
 
-<!-- Background Video -->
-<video autoplay muted loop playsinline>
-<source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
-</video>
-<div class="overlay"></div>
+<header>
+<h1>Sonu Kushwaha</h1>
+<p>Linux | DevOps | Automation Engineer</p>
+</header>
 
-<header>Sonu Kushwaha | DevOps Engineer</header>
-
-<!-- Hero Section -->
-<div class="hero">
-<img src="your-image.jpg" alt="Sonu">
-<div>
-<div class="title">Hi, I'm Sonu 👋</div>
-<div class="typing" id="typing"></div>
-<a class="btn" href="#projects">View Projects</a>
-</div>
-</div>
-
-<!-- Stats -->
 <section>
-<h2>Stats</h2>
-<div class="stats">
-<div class="stat"><h3 id="uptime">0%</h3><p>Uptime</p></div>
-<div class="stat"><h3 id="servers">0+</h3><p>Servers Managed</p></div>
-<div class="stat"><h3 id="exp">0+</h3><p>Years Experience</p></div>
-</div>
-</section>
-
-<!-- Projects -->
-<section id="projects">
-<h2>Live DevOps Projects</h2>
-<div class="grid">
-
 <div class="card">
-<b>Docker Flask App</b>
-<p>Containerized Python app with CI/CD pipeline</p>
-<a href="https://github.com/your-username/docker-project" target="_blank">🔗 GitHub</a>
+<h2>About Me</h2>
+<p>I specialize in Linux administration, cloud infrastructure, and DevOps automation. I work with real production systems and modern AI tools like Ollama.</p>
 </div>
 
 <div class="card">
-<b>AWS Infrastructure</b>
-<p>EC2 + S3 + RDS production setup</p>
-<a href="https://github.com/your-username/aws-project" target="_blank">🔗 GitHub</a>
+<h2>Skills</h2>
+<p>Linux, AWS, Docker, Ansible, CI/CD, Monitoring, Networking</p>
 </div>
 
 <div class="card">
-<b>CI/CD Pipeline</b>
-<p>Automated deployment using GitHub Actions</p>
-<a href="https://github.com/your-username/cicd-project" target="_blank">🔗 GitHub</a>
+<h2>Ollama Project (AI Setup)</h2>
+<p>Local AI model deployment using Ollama with OpenClaw configuration.</p>
+<pre>
+# Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Run model
+ollama run openchat
+
+# Launch with config
+ollama launch openclaw --config config.yaml
+</pre>
 </div>
 
+<div class="card">
+<h2>Projects</h2>
+<ul>
+<li>Dockerized Flask App Deployment</li>
+<li>AWS Infrastructure (EC2, S3, RDS)</li>
+<li>CI/CD Pipeline Automation</li>
+<li>Local AI Setup using Ollama</li>
+</ul>
 </div>
-</section>
 
-<!-- Contact -->
-<section>
+<div class="card">
 <h2>Contact</h2>
-<div class="card">
-📧 sonu.it.professional@outlook.com<br>
-📞 +91-8957826242
+<p>Email: sonu.it.professional@outlook.com</p>
 </div>
 </section>
-
-<script>
-// Typing Animation
-const words=["Linux System Engineer","AWS Cloud Specialist","DevOps Automation Expert","Infrastructure Architect"];
-let i=0,j=0,current='',isDeleting=false;
-function type(){
- current=words[i];
- document.getElementById('typing').textContent=current.substring(0,j);
- if(!isDeleting && j++===current.length){isDeleting=true;setTimeout(type,1000);return}
- if(isDeleting && j--===0){isDeleting=false;i=(i+1)%words.length}
- setTimeout(type,isDeleting?50:100);
-}
-type();
-
-// Smooth Stats Animation
-function animateValue(id,end,duration){
- let start=0,startTime=null;
- function animation(currentTime){
-  if(!startTime) startTime=currentTime;
-  let progress=currentTime-startTime;
-  let value=Math.min(progress/duration*end,end);
-  document.getElementById(id).innerText=Math.floor(value)+(id==='uptime'?'%':'+');
-  if(progress<duration) requestAnimationFrame(animation);
- }
- requestAnimationFrame(animation);
-}
-animateValue('uptime',99,2000);
-animateValue('servers',70,2000);
-animateValue('exp',4,2000);
-</script>
 
 </body>
 </html>
