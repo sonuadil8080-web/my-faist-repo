@@ -3,45 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonu Kushwaha | Elite DevOps Portfolio</title>
+<title>Sonu Kushwaha | DevOps Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#05070d;--text:#e6eaf2;--accent:#7dd3fc;--accent2:#a78bfa}
 body{margin:0;font-family:Inter;color:var(--text);overflow-x:hidden}
 video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:-1}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.65);z-index:-1}
 header{text-align:center;padding:15px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px)}
 .hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;padding:60px 20px}
-.hero img{width:240px;height:240px;border-radius:50%;border:3px solid var(--accent)}
+.hero img{width:240px;height:240px;border-radius:50%;border:3px solid var(--accent);object-fit:cover}
 .title{font-size:42px;font-weight:800}
-.typing{color:var(--accent);margin-top:10px}
-.btn{display:inline-block;margin-top:15px;padding:10px 20px;border-radius:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000}
+.typing{color:var(--accent);margin-top:10px;font-size:20px}
+.btn{display:inline-block;margin-top:15px;padding:10px 20px;border-radius:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:600}
 section{max-width:1100px;margin:40px auto;padding:20px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:rgba(255,255,255,.05);padding:20px;border-radius:15px}
 .stats{display:flex;justify-content:space-around;text-align:center}
 .stat h3{font-size:30px;color:var(--accent)}
+a{color:var(--accent)}
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<video autoplay muted loop>
+<!-- Background Video -->
+<video autoplay muted loop playsinline>
 <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
 
 <header>Sonu Kushwaha | DevOps Engineer</header>
 
+<!-- Hero Section -->
 <div class="hero">
-<img src="your-image.jpg">
+<img src="your-image.jpg" alt="Sonu">
 <div>
 <div class="title">Hi, I'm Sonu 👋</div>
 <div class="typing" id="typing"></div>
-<a class="btn" href="#projects">View Work</a>
+<a class="btn" href="#projects">View Projects</a>
 </div>
 </div>
 
+<!-- Stats -->
 <section>
 <h2>Stats</h2>
 <div class="stats">
@@ -51,32 +55,44 @@ section{max-width:1100px;margin:40px auto;padding:20px}
 </div>
 </section>
 
+<!-- Projects -->
 <section id="projects">
-<h2>Live Projects</h2>
+<h2>Live DevOps Projects</h2>
 <div class="grid">
+
 <div class="card">
-<b>Docker Flask App</b><br>
-<a href="https://github.com/your-repo" target="_blank">View on GitHub</a>
+<b>Docker Flask App</b>
+<p>Containerized Python app with CI/CD pipeline</p>
+<a href="https://github.com/your-username/docker-project" target="_blank">🔗 GitHub</a>
 </div>
+
 <div class="card">
-<b>AWS Infra Setup</b><br>
-<a href="https://github.com/your-repo" target="_blank">View on GitHub</a>
+<b>AWS Infrastructure</b>
+<p>EC2 + S3 + RDS production setup</p>
+<a href="https://github.com/your-username/aws-project" target="_blank">🔗 GitHub</a>
 </div>
+
 <div class="card">
-<b>CI/CD Pipeline</b><br>
-<a href="https://github.com/your-repo" target="_blank">View on GitHub</a>
+<b>CI/CD Pipeline</b>
+<p>Automated deployment using GitHub Actions</p>
+<a href="https://github.com/your-username/cicd-project" target="_blank">🔗 GitHub</a>
 </div>
+
 </div>
 </section>
 
+<!-- Contact -->
 <section>
 <h2>Contact</h2>
-<div class="card">📧 sonu.it.professional@outlook.com</div>
+<div class="card">
+📧 sonu.it.professional@outlook.com<br>
+📞 +91-8957826242
+</div>
 </section>
 
 <script>
-// typing
-const words=["Linux Expert","AWS Engineer","DevOps Specialist"];
+// Typing Animation
+const words=["Linux System Engineer","AWS Cloud Specialist","DevOps Automation Expert","Infrastructure Architect"];
 let i=0,j=0,current='',isDeleting=false;
 function type(){
  current=words[i];
@@ -87,15 +103,17 @@ function type(){
 }
 type();
 
-// animated stats
+// Smooth Stats Animation
 function animateValue(id,end,duration){
- let start=0,range=end-start,inc=range/(duration/50);
- let obj=document.getElementById(id);
- let timer=setInterval(()=>{
-  start+=inc;
-  if(start>=end){start=end;clearInterval(timer)}
-  obj.innerText=Math.floor(start)+(id==='uptime'?'%':'+');
- },50);
+ let start=0,startTime=null;
+ function animation(currentTime){
+  if(!startTime) startTime=currentTime;
+  let progress=currentTime-startTime;
+  let value=Math.min(progress/duration*end,end);
+  document.getElementById(id).innerText=Math.floor(value)+(id==='uptime'?'%':'+');
+  if(progress<duration) requestAnimationFrame(animation);
+ }
+ requestAnimationFrame(animation);
 }
 animateValue('uptime',99,2000);
 animateValue('servers',70,2000);
