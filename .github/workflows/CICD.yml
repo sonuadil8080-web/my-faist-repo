@@ -32,6 +32,7 @@ jobs:
       - name: Test the container
         run: echo "Test the container"
   deply:
+    if: inputs.enviranment == 'stg'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
