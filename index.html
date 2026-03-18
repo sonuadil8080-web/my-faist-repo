@@ -3,51 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonu Kushwaha | Premium Portfolio</title>
+<title>Sonu Kushwaha | DevOps Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#05070d;--text:#e6eaf2;--muted:#9aa4b2;--accent:#7dd3fc;--accent2:#a78bfa}
-body{margin:0;font-family:Inter;background:var(--bg);color:var(--text);overflow-x:hidden}
-canvas{position:fixed;top:0;left:0;z-index:-1}
-header{position:sticky;top:0;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);padding:15px}
-.hero{max-width:1100px;margin:80px auto;padding:20px}
-.title{font-size:48px;font-weight:800}
-.typing{color:var(--accent);font-size:22px;margin-top:10px}
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);padding:15px;text-align:center}
+.hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;padding:60px 20px}
+.hero img{width:260px;height:260px;object-fit:cover;border-radius:50%;border:3px solid var(--accent)}
+.title{font-size:42px;font-weight:800}
+.typing{color:var(--accent);font-size:20px;margin-top:10px}
 .btn{display:inline-block;margin-top:20px;padding:12px 20px;border-radius:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:600}
 section{max-width:1100px;margin:40px auto;padding:20px}
-.card{background:rgba(255,255,255,.05);padding:20px;border-radius:15px;margin:10px 0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.reveal{opacity:0;transform:translateY(20px);transition:.6s}
-.reveal.visible{opacity:1;transform:none}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.title{font-size:32px}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:rgba(255,255,255,.05);padding:20px;border-radius:15px}
+.testimonial{background:rgba(255,255,255,.05);padding:15px;border-radius:12px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.title{font-size:30px}}
 </style>
 </head>
 <body>
-<canvas id="bg"></canvas>
-<header>Sonu Kushwaha</header>
+<header>Sonu Kushwaha | Linux & DevOps Engineer</header>
+
 <div class="hero">
-<div class="title">Linux Admin & DevOps Engineer</div>
+<img src="/mnt/data/WhatsApp Image 2026-02-16 at 5.29.36 PM.jpeg" alt="Sonu">
+<div>
+<div class="title">Hi, I'm Sonu 👋</div>
 <div class="typing" id="typing"></div>
-<a class="btn" href="#projects">View Projects</a>
+<a class="btn" href="#contact">Hire Me</a>
+</div>
 </div>
 
-<section class="reveal">
-<h2>Live DevOps Projects</h2>
+<section>
+<h2>What I Do</h2>
 <div class="grid">
-<div class="card"><b>Docker App Deployment</b><br>Flask app containerized & deployed</div>
-<div class="card"><b>AWS Infra</b><br>EC2 + S3 + RDS production setup</div>
-<div class="card"><b>CI/CD Pipeline</b><br>GitHub Actions automation</div>
+<div class="card">Linux Server Management</div>
+<div class="card">AWS Cloud Deployment</div>
+<div class="card">Docker & Containers</div>
+<div class="card">CI/CD Automation</div>
+<div class="card">Monitoring (Zabbix)</div>
+<div class="card">Web Server Setup</div>
 </div>
 </section>
 
-<section class="reveal">
+<section>
+<h2>Projects</h2>
+<div class="grid">
+<div class="card">AWS Infra (EC2, S3, RDS)</div>
+<div class="card">Docker Flask App Deployment</div>
+<div class="card">CI/CD with GitHub Actions</div>
+</div>
+</section>
+
+<section>
+<h2>Testimonials</h2>
+<div class="grid">
+<div class="testimonial">"Sonu reduced downtime and improved system reliability massively."</div>
+<div class="testimonial">"Very skilled in Linux and AWS troubleshooting."</div>
+<div class="testimonial">"Fast, reliable and professional DevOps engineer."</div>
+</div>
+</section>
+
+<section id="contact">
 <h2>Contact</h2>
-<div class="card">📧 sonu.it.professional@outlook.com</div>
+<div class="card">📧 sonu.it.professional@outlook.com<br>📞 +91-8957826242</div>
 </section>
 
 <script>
-// typing animation
-const words=["AWS Specialist","Docker Expert","Linux Engineer","Automation Lover"];
+const words=["Linux Expert","AWS Engineer","Docker Specialist","DevOps Professional"];
 let i=0,j=0,current='',isDeleting=false;
 function type(){
  current=words[i];
@@ -57,29 +79,7 @@ function type(){
  setTimeout(type,isDeleting?50:100);
 }
 type();
-
-// particles background
-const canvas=document.getElementById('bg');
-const ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;canvas.height=window.innerHeight;
-let particles=[];
-for(let i=0;i<80;i++)particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:Math.random()-.5,vy:Math.random()-.5});
-function animate(){
- ctx.clearRect(0,0,canvas.width,canvas.height);
- ctx.fillStyle='white';
- particles.forEach(p=>{
-  p.x+=p.vx;p.y+=p.vy;
-  if(p.x<0||p.x>canvas.width)p.vx*=-1;
-  if(p.y<0||p.y>canvas.height)p.vy*=-1;
-  ctx.fillRect(p.x,p.y,2,2);
- });
- requestAnimationFrame(animate);
-}
-animate();
-
-// reveal
-const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')));
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
 </body>
 </html>
