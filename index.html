@@ -1,135 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sonu Kushwaha | Linux Admin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#05070d;--card:#0b0f1a;--text:#e6eaf2;--muted:#9aa4b2;--accent:#7dd3fc;--accent2:#a78bfa;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 80% -10%,rgba(167,139,250,.15),transparent),radial-gradient(900px 500px at -10% 20%,rgba(125,211,252,.15),transparent),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial}
-    a{text-decoration:none;color:inherit}
-
-    header{position:sticky;top:0;backdrop-filter: blur(12px);background:rgba(5,7,13,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
-    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-    .brand{font-weight:800;letter-spacing:.5px}
-    .links a{margin-left:16px;color:var(--muted)}
-
-    .hero{max-width:1100px;margin:60px auto 40px;padding:0 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-    .title{font-size:48px;line-height:1.1;font-weight:800}
-    .subtitle{color:var(--muted);margin-top:12px}
-    .cta{margin-top:22px}
-    .btn{display:inline-block;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:600;box-shadow:0 10px 30px rgba(125,211,252,.25);transition:transform .2s ease,box-shadow .2s}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(167,139,250,.35)}
-
-    .glass{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-
-    section{max-width:1100px;margin:30px auto;padding:0 20px}
-    h2{font-size:28px;margin:10px 0 16px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{border-radius:18px;padding:18px;background:var(--card);border:1px solid rgba(255,255,255,.06);transition:transform .25s ease, box-shadow .25s ease}
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.45)}
-    .muted{color:var(--muted)}
-
-    footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.06)}
-
-    /* reveal animations */
-    .reveal{opacity:0;transform:translateY(20px);transition:all .7s ease}
-    .reveal.visible{opacity:1;transform:none}
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .title{font-size:36px}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonu Kushwaha | Premium Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05070d;--text:#e6eaf2;--muted:#9aa4b2;--accent:#7dd3fc;--accent2:#a78bfa}
+body{margin:0;font-family:Inter;background:var(--bg);color:var(--text);overflow-x:hidden}
+canvas{position:fixed;top:0;left:0;z-index:-1}
+header{position:sticky;top:0;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);padding:15px}
+.hero{max-width:1100px;margin:80px auto;padding:20px}
+.title{font-size:48px;font-weight:800}
+.typing{color:var(--accent);font-size:22px;margin-top:10px}
+.btn{display:inline-block;margin-top:20px;padding:12px 20px;border-radius:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:600}
+section{max-width:1100px;margin:40px auto;padding:20px}
+.card{background:rgba(255,255,255,.05);padding:20px;border-radius:15px;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.reveal{opacity:0;transform:translateY(20px);transition:.6s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.title{font-size:32px}}
+</style>
 </head>
 <body>
-
-<header>
-  <div class="nav">
-    <div class="brand">Sonu Kushwaha</div>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</header>
-
+<canvas id="bg"></canvas>
+<header>Sonu Kushwaha</header>
 <div class="hero">
-  <div>
-    <div class="title">Linux Admin.<br/>Cloud & DevOps.</div>
-    <div class="subtitle">4+ years building reliable systems, automation, and cloud infrastructure.</div>
-    <div class="cta"><a class="btn" href="#contact">Hire Me</a></div>
-  </div>
-  <div class="glass reveal">
-    <p>⚡ 99.9% uptime across production systems</p>
-    <p>⚡ 70+ servers managed</p>
-    <p>⚡ AWS, Docker, Ansible expert</p>
-  </div>
+<div class="title">Linux Admin & DevOps Engineer</div>
+<div class="typing" id="typing"></div>
+<a class="btn" href="#projects">View Projects</a>
 </div>
 
-<section id="about" class="reveal">
-  <h2>About</h2>
-  <div class="glass">
-    Linux System Administrator with strong expertise in troubleshooting, automation, and cloud environments. Experienced in handling production systems and delivering high availability.
-  </div>
+<section class="reveal">
+<h2>Live DevOps Projects</h2>
+<div class="grid">
+<div class="card"><b>Docker App Deployment</b><br>Flask app containerized & deployed</div>
+<div class="card"><b>AWS Infra</b><br>EC2 + S3 + RDS production setup</div>
+<div class="card"><b>CI/CD Pipeline</b><br>GitHub Actions automation</div>
+</div>
 </section>
 
-<section id="skills" class="reveal">
-  <h2>Skills</h2>
-  <div class="grid">
-    <div class="card">Linux (RHEL, Ubuntu, SUSE)</div>
-    <div class="card">AWS (EC2, S3, RDS)</div>
-    <div class="card">Docker & Ansible</div>
-    <div class="card">Nginx / Apache</div>
-    <div class="card">Networking (DNS, DHCP)</div>
-    <div class="card">Shell & Python</div>
-  </div>
+<section class="reveal">
+<h2>Contact</h2>
+<div class="card">📧 sonu.it.professional@outlook.com</div>
 </section>
-
-<section id="projects" class="reveal">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <strong>AWS Operations</strong>
-      <p class="muted">Maintained 99.9% uptime & reduced MTTR by 30%</p>
-    </div>
-    <div class="card">
-      <strong>Asterisk Dialer</strong>
-      <p class="muted">Improved uptime & reduced downtime by 25%</p>
-    </div>
-    <div class="card">
-      <strong>VMware Infra</strong>
-      <p class="muted">Managed 50+ VMs with optimized storage</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="reveal">
-  <h2>Contact</h2>
-  <div class="glass">
-    <p>📞 +91-8957826242</p>
-    <p>📧 sonu.it.professional@outlook.com</p>
-    <a class="btn" href="#">Download Resume</a>
-  </div>
-</section>
-
-<footer>
-  © 2026 Sonu Kushwaha • Luxury Portfolio UI
-</footer>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
-  }, {threshold: .2});
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+// typing animation
+const words=["AWS Specialist","Docker Expert","Linux Engineer","Automation Lover"];
+let i=0,j=0,current='',isDeleting=false;
+function type(){
+ current=words[i];
+ document.getElementById('typing').textContent=current.substring(0,j);
+ if(!isDeleting && j++===current.length){isDeleting=true;setTimeout(type,1000);return}
+ if(isDeleting && j--===0){isDeleting=false;i=(i+1)%words.length}
+ setTimeout(type,isDeleting?50:100);
+}
+type();
 
+// particles background
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<80;i++)particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:Math.random()-.5,vy:Math.random()-.5});
+function animate(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.fillStyle='white';
+ particles.forEach(p=>{
+  p.x+=p.vx;p.y+=p.vy;
+  if(p.x<0||p.x>canvas.width)p.vx*=-1;
+  if(p.y<0||p.y>canvas.height)p.vy*=-1;
+  ctx.fillRect(p.x,p.y,2,2);
+ });
+ requestAnimationFrame(animate);
+}
+animate();
+
+// reveal
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')));
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
