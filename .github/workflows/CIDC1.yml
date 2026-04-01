@@ -11,18 +11,21 @@ jobs:
         run: echo "Code clone from GitHub"
 
   build:
+    needs: [code]
     runs-on: ubuntu-latest
     steps:
       - name: Build the container
         run: echo "Container build"
 
   test:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Test the code
         run: echo "Test the container"
 
   deploy:
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy code
