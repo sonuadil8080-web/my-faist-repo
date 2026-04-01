@@ -8,3 +8,8 @@ jobs:
     steps:
       - name: say hello to user
         run: echo "hello Dosts"
+  datils:
+    run-on: ubuntu-latest
+    steps:
+        - name: show the python version and docker
+          run: python --version & docker --version
