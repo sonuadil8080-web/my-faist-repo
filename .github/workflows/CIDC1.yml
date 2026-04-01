@@ -1,25 +1,29 @@
 name: CIDC1
-  on:
-   workflow_dispatch:
 
-   jobs:
-   code:
-     run-on: ubuntu-latest
-     steps:
-       - nmae: checkout code
-         run: echo"code clone from githab"
-   build:
-      run-on: ubuntu-latest
-      steps:
-       - nmae: build the container
-         run: echo"container build"
-   Test:
-     run-on: ubuntu-latest
-     steps:
-       - nmae: test the code
-         run: echo"Test the container"
-   deply:
-      run-on: ubuntu-latest
-      steps:
-       - nmae: deply code
-         run: echo"Deply the code"
+on:
+  workflow_dispatch:
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        run: echo "Code clone from GitHub"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build the container
+        run: echo "Container build"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test the code
+        run: echo "Test the container"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy code
+        run: echo "Deploy the code"
