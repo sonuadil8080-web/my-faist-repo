@@ -1,15 +1,20 @@
 name: helloo
-  on:
-    push:
-      branch: [main]
+
+on:
+  push:
+    branches: [ main ]
+
 jobs:
   greet:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: say hello to user
+      - name: Say hello to user
         run: echo "hello Dosts"
-  datils:
-    run-on: ubuntu-latest
+
+  details:
+    runs-on: ubuntu-latest
     steps:
-        - name: show the python version and docker
-          run: python --version && docker --version
+      - name: Show the python version and docker
+        run: |
+          python --version
+          docker --version
